@@ -18,20 +18,19 @@ countq3 = 0
 #Uncomment the lines below to create the task-specific corpus
 #for item in tree.findall('item'):
 #	count = count + 1
-#	print count
 #	if int(item.find('search_task_number').text) != 3:
 #		root.remove(item)
 #print count
-count = 0
-
-tree.write('data.xml')
+#tree.write('data.xml')
 
 #############
 #Sanity Check
 #############
+count = 0
 tree = ET.parse('data.xml')
 root = tree.getroot()
 #for item in tree.iter('item'):
+relevant = 0
 for item in tree.findall('item'):
 	count = count + 1
 	if item.find('query').text == "Content based video annotation":
@@ -40,8 +39,11 @@ for item in tree.findall('item'):
 	    countq2  = countq2 + 1
 	if item.find('query').text == "feature based Multimedia annotation":
 		countq3 = countq3 + 1
-print count 
+	if item.find('relevance').text == "1":
+		relevant = relevant + 1
+
 print "Number of task docs " + str(count)
+print "Number of relevant task docs " + str(relevant)
 print "Number of 'Content based video annotation' Docs: " + str(countq1)
 print "Number of 'Automatic or semiautomatic video tagging' " + str(countq2)
 print "Number of 'feature based Multimedia annotation' docs " + str(countq3)
