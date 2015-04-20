@@ -236,6 +236,7 @@ class assignment2
     {
         if (map.size() > 0) 
         {
+        	int count = 0;
             Map<Float, Document> sorted = new TreeMap<>(map); // Order the map
             Iterator iterator = sorted.keySet().iterator();
             List<Float> keys = new LinkedList<>(); // Keys in ascendant order
@@ -249,7 +250,9 @@ class assignment2
                 Document doc = sorted.get(keys.get(i));
                 //System.out.println(keys.get(i) + "," + doc.get("realTitle") + "," + doc.get("relevant")); // For csv format
                 System.out.println("\t\t"+keys.get(i) + " " + doc.get("realTitle"));
+                count = count + 1;
             }//end of for
+            System.out.println("The Number of Results is:"+count);
         }//end of if
         else 
         {
