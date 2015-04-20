@@ -1,4 +1,4 @@
-#/usr/bin/python
+#!/usr/bin/python
 #Program to parse the raw XML file to generate data that is specific to our
 #specific task i.e. Search task #3: Video Tagging
 #Author : Vikram Kamath
@@ -12,8 +12,12 @@ countq1 = 0
 countq2 = 0 
 countq3 = 0
 for item in tree.findall('item'):
+	count = count + 1
+	print count
 	if int(item.find('search_task_number').text) != 3:
 		root.remove(item)
+print count
+count = 0
 
 tree.write('data.xml')
 
