@@ -11,17 +11,24 @@ count = 0
 countq1 = 0 
 countq2 = 0 
 countq3 = 0
-for item in tree.findall('item'):
-	count = count + 1
-	print count
-	if int(item.find('search_task_number').text) != 3:
-		root.remove(item)
-print count
+###############################
+# TASK SPECIFIC CORPUS CREATION
+###############################
+
+#Uncomment the lines below to create the task-specific corpus
+#for item in tree.findall('item'):
+#	count = count + 1
+#	print count
+#	if int(item.find('search_task_number').text) != 3:
+#		root.remove(item)
+#print count
 count = 0
 
 tree.write('data.xml')
 
+#############
 #Sanity Check
+#############
 tree = ET.parse('data.xml')
 root = tree.getroot()
 #for item in tree.iter('item'):
