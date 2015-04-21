@@ -248,8 +248,8 @@ class assignment2
             for (int i = keys.size()-1; i >= 0; i--) 
             {
                 Document doc = sorted.get(keys.get(i));
-                //System.out.println(keys.get(i) + "," + doc.get("realTitle") + "," + doc.get("relevant")); // For csv format
-                System.out.println("\t\t"+keys.get(i) + " " + doc.get("realTitle"));
+                System.out.println(keys.get(i) + "," + doc.get("realTitle") + "," + doc.get("relevant")); // For csv format
+                //System.out.println("\t\t"+keys.get(i) + " " + doc.get("realTitle") + " " + doc.get("relevant"));
                 count = count + 1;
             }//end of for
             System.out.println("The Number of Results is:"+count);
@@ -307,7 +307,7 @@ class assignment2
             // Index with Standard Analyzer No Stop Words
             engine.index(docs, analyzerStandardNSW, directoryStandarNSW, false);
             
-            // Index with English Analyzer
+            // Index with English Stemmer
             engine.index(docs, analyzerStandardStem, directoryStandarStem, true);
             
             List<String> query1; // Content based video annotation
