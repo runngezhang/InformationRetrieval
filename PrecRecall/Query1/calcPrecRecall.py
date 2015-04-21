@@ -64,7 +64,9 @@ def plot_precRec(data):
     """
     Plot the precision Recall Curve
     """ 
-
+    global col
+    global row
+    global index
     #Plot the data to the subplot
     axarr[row, col].plot(data[:,1], data[:,0])
     axarr[row, col].set_title(plot_titles[index])
