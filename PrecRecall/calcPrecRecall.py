@@ -14,6 +14,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+plt.figure(1) #Create a figure
 
 
 
@@ -65,7 +66,11 @@ def getData(n_relevant):
                     for particular search task
     :type n_relevant: int
     '''
-    for filename in os.listdir(os.getcwd()):
+
+    #Sorted - as a hack, along with a numbered
+    # 		naming scheme for the files to get 
+    #	    universally ordered plots (across all three queries)
+    for filename in sorted(os.listdir(os.getcwd())):
         config, extension = os.path.splitext(filename)
 
         #Open the file, put it in a numpy array

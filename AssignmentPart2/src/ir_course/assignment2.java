@@ -62,9 +62,13 @@ class assignment2
     private static Analyzer analyzerStandardNSW = new StandardAnalyzer(Version.LUCENE_42,CharArraySet.EMPTY_SET);
     private static Directory directoryStandarNSW = new RAMDirectory();
     
-    // Standard analyzer using PorterStemmer
-    private static Analyzer analyzerStandardStem = new StandardAnalyzer(Version.LUCENE_42);
-    private static Directory directoryStandarStem = new RAMDirectory();
+    // Standard analyzer using PorterStemmer and stop words
+    private static Analyzer analyzerStandardStemSW = new StandardAnalyzer(Version.LUCENE_42);
+    private static Directory directoryStandarStemSW = new RAMDirectory();
+    
+    // Standard analyzer using PorterStemmer without stop
+    private static Analyzer analyzerStandardStemNSW  = new StandardAnalyzer(Version.LUCENE_42,CharArraySet.EMPTY_SET);
+    private static Directory directoryStandarStemNSW = new RAMDirectory();
     
     /* Method index
      * 
@@ -308,7 +312,10 @@ class assignment2
             engine.index(docs, analyzerStandardNSW, directoryStandarNSW, false);
             
             // Index with English Stemmer
-            engine.index(docs, analyzerStandardStem, directoryStandarStem, true);
+            engine.index(docs, analyzerStandardStemSW, directoryStandarStemSW, true);
+            
+            // Index with English Stemmer
+            engine.index(docs, analyzerStandardStemNSW, directoryStandarStemNSW, true);
             
             List<String> query1; // Content based video annotation
             List<String> query2; // Automatic or semiautomatic video tagging
@@ -347,10 +354,16 @@ class assignment2
             engine.printResults(query3, directoryStandarNSW, false);
             
             System.out.println();
-            System.out.println("Using Standard Analyzer with PorterStemmer");
-            engine.printResults(query1, directoryStandarStem, true);
-            engine.printResults(query2, directoryStandarStem, true);
-            engine.printResults(query3, directoryStandarStem, true);
+            System.out.println("Using Standard Analyzer with PorterStemmer with Stop Words");
+            engine.printResults(query1, directoryStandarStemSW, true);
+            engine.printResults(query2, directoryStandarStemSW, true);
+            engine.printResults(query3, directoryStandarStemSW, true);
+            
+            System.out.println();
+            System.out.println("Using Standard Analyzer with PorterStemmer without Stop Words");
+            engine.printResults(query1, directoryStandarStemNSW, true);
+            engine.printResults(query2, directoryStandarStemNSW, true);
+            engine.printResults(query3, directoryStandarStemNSW, true);
        
         }//end of if block
         else 
