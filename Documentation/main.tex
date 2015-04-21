@@ -38,16 +38,17 @@
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{placeins}
-
+\usepackage[round]{natbib}
 
 \begin{document}
+
 
 \begin{titlepage}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
 
 \center % Center everything on the page
- 
+
 %----------------------------------------------------------------------------------------
 %   HEADING SECTIONS
 %----------------------------------------------------------------------------------------
@@ -70,7 +71,7 @@
 
 \begin{minipage}{0.45\textwidth}
 \begin{center} \large
-Antti \textsc{Partanen}\\ % Your name
+\textsc{Antti Partanen}\\ % Your name
 \texttt{antti.partanen@aalto.fi}\\
 295967
 \end{center}
@@ -78,9 +79,9 @@ Antti \textsc{Partanen}\\ % Your name
 ~
 \begin{minipage}{0.45\textwidth}
 \begin{center} \large
-Vikram \textsc{Kamath}\\ % Supervisor's Name
+\textsc{Vikram Kamath}\\ % Supervisor's Name
 \texttt{vikram.kamath@aalto.fi}\\
-XXXXXX
+440819
 \end{center}
 \end{minipage}\\[2cm]
 
@@ -109,12 +110,12 @@ XXXXXX
 
 \end{titlepage}
 
-\todo[inline, color=green!40]{Too messy titlepage?}
+%\todo[inline, color=green!40]{Too messy titlepage?}
 
-\begin{abstract}
-In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of morphological techniques, including stemmers and stop words.
-\todo[inline, color=green!40]{Abstract maybe not necessary? Overlap with introduction?}
-\end{abstract}
+%\begin{abstract}
+%In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of morphological techniques, including stemmers and stop words.
+%\todo[inline, color=green!40]{Abstract maybe not necessary? Overlap with introduction?}
+%\end{abstract}
 
 \section{Introduction}
 
@@ -122,7 +123,24 @@ The task of Information retrieval is to obtain information resources relevant to
 
 Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most existing text retrieval techniques rely on indexing key-words. Unfortunately keywords or index terms alone cannot adequately capture the document contents, resulting in poor retrieval performance. Yet, keyword indexing is widely used in commercial systems because it is still the most viable way by far to process large amount of text. 
 
+The generic textual information retrieval process is show in Figure \ref{fig:IR} and it has the following steps:
+\begin{enumerate}
+  \item The system builds and index of the documents (\textit{indexing}) 
+  \item User describes the \textit{information need} in a form of a query, which is parsed and transformed by the system with the same operations applied to the documents (\textit{query formulation})
+  \item The system retrieves, ranks and displays documents that are relevant to the query from the index
+  \item User may give relevance feedback to the system
+\end{enumerate}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{IR.png}
+	\caption{Information retrieval pipeline \citep{hiemstra2009information}}
+	\label{fig:IR}
+\end{figure}
+\FloatBarrier
+
 Efficient and effective information retrieval techniques are critical in managing the increased amount of textual information available in electronic form. Therefore, it is no wonder that currently the most visible IR systems are web search engines.  
+
+\textbf{Apache Lucene}
 
 In this paper, we compare the two information retrieval techniques: Vector Space Model (VSM) and BM25. Furthermore, we analyze what effects does the usage of stemmers (porter stemmer) and stopwords have with the retrieval result. The evaluation of our experiments is visualized with eleven point precision recall curves. 
 
@@ -130,11 +148,28 @@ In this paper, we compare the two information retrieval techniques: Vector Space
 
 \section{Techniques}
 
-Techniques that we used were VSM and BM25. 
-\todo[inline, color=green!40]{Add text and references} 
+Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25)
 
 \subsection{VSM}
+
+VSM (Vector Space Model) is an algebraic representation model for objects as vectors of identifiers. Beyond information retrieval, VSM is also used in information filtering and indexing. It was first introduced by \citep{ref1} and it was first utilized in SMART IR system \citep{ref2}.
+
+The core idea of VSM is rather simple: represent documents ($D_j$) and queries ($Q$) as vectors in vector-space. 
+
+\begin{center}
+$ D_j = (w_{1,j}, w_{2,j},...,w_{t,j}) $ \\
+$ Q = (w_{1,q}, w_{2,q},...,w_{n,q}) $
+\end{center}
+
+There are several different ways of calculating these weights, but \textit{tf-idf} is one on the best known. Documents are ranked according to their proximity to the query in this space, where proximity corresponds to the similarity of the vectors. 
+
+
+%The closer a document vector is to the query vector the higher ranking it receives.
+
 \subsection{BM25}
+
+BM25, often referred to as Okapi BM25 (where BM stands for Best Matching), is a probabilistic ranking function. 
+
 \subsection{Stemmers}
 \subsection{Stopwords}
 
@@ -170,7 +205,7 @@ Techniques that we used were VSM and BM25.
 
 
 \nocite{*}
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{bibliography.bib}
 
 \todo[inline, color=green!40]{Add more references}
@@ -178,7 +213,6 @@ Techniques that we used were VSM and BM25.
 \appendix
 \section{Installation instructions} \label{App:instructions}
 
-\todo[inline, color=green!40]{Add instructions}
 
 Here is a brief systems installation and system configuration instructions. 
 
