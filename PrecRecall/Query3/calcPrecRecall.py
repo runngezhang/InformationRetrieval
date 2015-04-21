@@ -137,7 +137,7 @@ def main():
     plt.setp([a.get_xticklabels() for a in axarr[1, :]], visible=False)
     plt.setp([a.get_xticklabels() for a in axarr[2, :]], visible=False)
     plt.setp([a.get_yticklabels() for a in axarr[:, 1]], visible=False)
-    f.text(0.5,0.995,'Query 1',horizontalalignment='center',
+    f.text(0.5,0.995,'Query 3',horizontalalignment='center',
        verticalalignment='top',weight='bold')
     f.text(0.5, 0.015, 'Recall', ha='center', va='center',weight='bold')
     f.text(0.98, 0.5, 'Precision', ha='center', va='center', rotation=270,weight='bold')
