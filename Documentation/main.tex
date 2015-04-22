@@ -127,7 +127,7 @@ Text-Based Information Retrieval Systems}\\[0.4cm] % Title of your document
 \begin{abstract}
 As the amount of data available in electronic form increases continuously, efficient and effective information retrieval techniques are critical. It has been estimated that the amount of data on the Internet doubles every second year. Thus, it is no wonder, that most visible current information retrieval systems are web search engines.
 
-In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of stemmers and stop words. For this study, we used Java with Apache Lucene.  
+In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of stemmers and stop words. For this study, we use Java with Apache Lucene.  
 
 \end{abstract}
 
@@ -198,7 +198,7 @@ Where the norm or length $ \norm{Q} $ is calculated as
 
 BM25, often referred to as Okapi BM25 (where BM stands for Best Matching), is a probabilistic ranking function. It is based on probabilistic relevance model, devised by \citep{robertson1996okapi}. 
 
-BM25 uses a bag-of-words representation of a document, a representation that ignores the relative ordering of words in the document and the query. It isn't one stand-alone method, but is actually a collection of functions, each of which uses different hyperparameters, the outputs of which are combined to give the final similarity score between a document and a query. BM25 uses both term frequencies and inverse document frequencies to compute the final similarity score. The BM25 retrieval formula is part of the BM family of retrieval models and according to the Encyclopedia of database systems (\citep{amati2009bm25}), it defines the document-query matching function as:
+BM25 uses a bag-of-words representation of a document, a representation that ignores the relative ordering of words in the document and the query. It isn't one stand-alone method, but is actually a collection of functions, each of which uses different hyper-parameters, the outputs of which are combined to give the final similarity score between a document and a query. BM25 uses both term frequencies and inverse document frequencies to compute the final similarity score. The BM25 retrieval formula is part of the BM family of retrieval models and according to the Encyclopedia of database systems (\citep{amati2009bm25}), it defines the document-query matching function as:
 
 \begin{equation}
  \sum\limits_{t \in q} (k+l)\frac{\bm{tf}}{k+\bm{tf}} \cdot (k_3+ld) \frac{\bm{tf}_q}{k_3 + \bm{tf}_q} \cdot ln\frac{ (r_t +0.5) \cdot (N-R-n_t+r_t+0.5) }{(n_t-r_t+0.5) \cdot (R-r_t+0.5)}
