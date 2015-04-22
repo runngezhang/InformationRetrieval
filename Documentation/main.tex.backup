@@ -266,22 +266,9 @@ Here is a brief systems installation and system configuration instructions.
 
 \begin{enumerate}
 
-\item {\bf Preprocessing} \\
-We wrote a small script to parse the XML file and dump \lq items' relevant to our search task
-in a document called \lq data.xml'. It is assumed that this file will be used as a command line
-argument to the program. To create a fresh dump, run \lq parseXML.py' and ensure that the corpus
-file is in the same directory as the script. 
-\item {\bf Java Indexing, Search and Ranking Implementation} \\
-The whole Java project \lq Assignment2' once loaded into your Eclipse workspace
-will make available the file \lq assignment2.java', that contains our implementation. 
-Make sure to use all our imports as we use the Java HashMap implementation in our code.
-\item {\bf Plotting, Metrics} \\
-We dumped the output of \lq assignment2.java' into csv files, one for each query-parameter
-combination (24 in total - 8 per query). The csv files, ordered according to query are in
-a folder called \lq PrecRec', which further contains 3 folders, one per query containing csv
-files relevant to the query. Each of the query folders also contains a python script called \lq calcPrecRecall.py\rq 
-that consumes the csv files in the folder and computes the 11-point non-interpolated precision recall curve,
-which is then saved into a \lq plot.png' file in the same folder. 
+\item ...
+\item ...
+
 \end{enumerate}
 
 \end{document}
