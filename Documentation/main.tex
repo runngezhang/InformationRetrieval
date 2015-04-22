@@ -40,6 +40,14 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{placeins}
 \usepackage[round]{natbib}
+\usepackage{bm}
+\newcommand{\Tfrac}[2]{%
+  \ooalign{%
+    $\genfrac{}{}{1.2pt}1{#1}{#2}$\cr%
+    $\color{white}\genfrac{}{}{.4pt}1{\phantom{#1}}{\phantom{#2}}$}%
+}
+
+
 
 \begin{document}
 
@@ -54,8 +62,9 @@
 %   HEADING SECTIONS
 %----------------------------------------------------------------------------------------
 
-\textsc{\LARGE Aalto University}\\[1.5cm] % Name of your university/college
-\textsc{\Large T-75.4400 Information retrieval}\\[0.5cm] % Major heading such as course name
+%\textsc{\LARGE Aalto University}\\[1.5cm] % Name of your university/college
+\textsc{\LARGE T-75.4400 Information retrieval}\\[1.5cm] % Name of your university/college
+%\textsc{\Large T-75.4400 Information retrieval}\\[0.5cm] % Major heading such as course name
 \textsc{\large Assignment 2}\\[0.5cm] % Minor heading such as course title
 
 %----------------------------------------------------------------------------------------
@@ -98,7 +107,7 @@ Text-Based Information Retrieval Systems}\\[0.4cm] % Title of your document
 %   LOGO SECTION
 %----------------------------------------------------------------------------------------
 
-\includegraphics{AaltoSCI_EN_9.pdf}\\[1cm] % Include a department/university logo - this will require the graphicx package
+\includegraphics[width=0.2\textwidth]{AaltoSCI_EN_9.pdf}\\[1cm] % Include a department/university logo - this will require the graphicx package
  
 %----------------------------------------------------------------------------------------
 
@@ -115,16 +124,18 @@ Text-Based Information Retrieval Systems}\\[0.4cm] % Title of your document
 
 %\todo[inline, color=green!40]{Too messy titlepage?}
 
-%\begin{abstract}
-%In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of morphological techniques, including stemmers and stop words.
-%\todo[inline, color=green!40]{Abstract maybe not necessary? Overlap with introduction?}
-%\end{abstract}
+\begin{abstract}
+As the amount of data available in electronic form increases continuously, efficient and effective information retrieval techniques are critical. It has been estimated that the amount of data on the Internet doubles every second year. Thus, it is no wonder, that most visible current information retrieval systems are web search engines.
+
+In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of stemmers and stop words. For this study, we used Java with Apache Lucene.  
+
+\end{abstract}
 
 \section{Introduction}
 
-The task of Information retrieval is to obtain information resources relevant to the imminent need from information resources. Resources include books, journals and other documents. Searches can be based on meta-data or on full-text indexing.
+The task of Information retrieval is to obtain information resources, including books, journals and other documents, relevant to the imminent need from information resources. Searches can be based on meta-data or on full-text indexing.
 
-Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most existing text retrieval techniques rely on indexing key-words. Unfortunately keywords or index terms alone cannot adequately capture the document contents, resulting in poor retrieval performance. Yet, keyword indexing is widely used in commercial systems because it is still the most viable way by far to process large amount of text. 
+Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most of the existing text retrieval techniques rely on indexing key-words, although keywords and index terms alone do not sufficiently capture the documents content. Still, the computational difficulties of more advanced systems keeps the keyword indexing as the most viable way by far to process large amount of text. 
 
 The generic textual information retrieval process is show in Figure \ref{fig:IR} and it has the following steps:
 \begin{enumerate}
@@ -143,87 +154,92 @@ The generic textual information retrieval process is show in Figure \ref{fig:IR}
 
 Efficient and effective information retrieval techniques are critical in managing the increased amount of textual information available in electronic form. Therefore, it is no wonder that currently the most visible IR systems are web search engines.  
 
-\textbf{Apache Lucene}
+\subsection{Tools}
+
+
+We used Java with Apache Lucene, to carry out our experiments. Apache Lucene is a free open source information retrieval software library, developed originally by Doug Cutting in 1999.  Lucene is capable of offering high-performance and includes full-featured text search engine.
+
+\subsection{Content}
 
 In this paper, we compare the two information retrieval techniques: Vector Space Model (VSM) and BM25. Furthermore, we analyze what effects does the usage of stemmers (porter stemmer) and stopwords have with the retrieval result. The evaluation of our experiments is visualized with eleven point precision recall curves. 
 
-\todo[inline, color=green!40]{Draft version: aka needs modifying + references}
+
 
 \section{Techniques}
 
-Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25)
+Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25).
 
 \subsection{VSM}
 
-VSM (Vector Space Model) is an algebraic representation model for objects as vectors of identifiers. Beyond information retrieval, VSM is also used in information filtering and indexing. It was first introduced by \citep{ref1} and it was first utilized in SMART IR system \citep{ref2}.
+VSM (Vector Space Model) is an algebraic representation model for objects as vectors of identifiers. Beyond information retrieval, VSM is also used in information filtering and indexing. The concept dates back to the early days of IR and it was first utilized in SMART system \citep{dubin2004most}.
 
-The core idea of VSM is rather simple: represent documents ($D_j$) and queries ($Q$) as vectors in vector-space. 
+The core idea of VSM is rather simple: represent documents ($D_j$) and queries ($Q$) as vectors of weights \citep{Salton:1975:VSM:361219.361220}.
 
-\begin{center}
-$ D_j = (w_{1,j}, w_{2,j},...,w_{t,j}) $ \\
-$ Q = (w_{1,q}, w_{2,q},...,w_{n,q}) $
-\end{center}
+\begin{equation}
+D_j = (w_{1,j}, w_{2,j},...,w_{t,j})
+\end{equation}
+\begin{equation}
+Q = (w_{1,q}, w_{2,q},...,w_{n,q}) 
+\end{equation}
 
-There are several different ways of calculating these weights, but \textit{tf-idf} is one on the best known. Documents are ranked according to their proximity to the query in this space, where proximity corresponds to the similarity of the vectors. Similarity is not calculated as an euclidean distance, but rather as an angle or cosine between the vectors
+There are several different ways of calculating these weights, but \textit{tf-idf} is one on the best known. Documents are ranked according to their proximity to the query in this space, where proximity corresponds to the similarity of the vectors. Similarity is not calculated as an euclidean distance, but rather as an cosine between the vectors.
 
-\begin{center}
-$ cos\theta = \frac{D_j \cdot Q}{\norm{D_j} \norm{Q}} $ 
-\end{center} 
-, where the norm or length $ \norm{Q}$ is calculated as
-\begin{center}
-$ \norm{Q} = \sqrt{\sum\limits_{i=1}^n q_i } $ .
-\end{center}
+\begin{equation}
+cos\theta = \frac{D_j \cdot Q}{\norm{D_j} \norm{Q}}  
+\end{equation} 
+Where the norm or length $ \norm{Q} $ is calculated as
+\begin{equation}
+\norm{Q} = \sqrt{\sum\limits_{i=1}^n q_i }  
+\end{equation}
 
 %The closer a document vector is to the query vector the higher ranking it receives.
 
 \subsection{BM25}
 
-BM25, often referred to as Okapi BM25 (where BM stands for Best Matching), is a probabilistic ranking function. It is based on probabilistic relevance model, devised by Robertson et al. \ref{ref3}.
-BM25 uses a bag-of-words representation of a document, a representation that ignores the relative ordering
-of words in the document and the query. It isn't one stand-alone method, but is actually a collection
-of functions, each of which uses different hyperparameters, the outputs of which are combined to 
-give the final similarity score between a document and a query. BM25 uses both term frequencies and
-inverse document frequencies to compute the final similarity score. [TODO Insert Citation to Text book]
+BM25, often referred to as Okapi BM25 (where BM stands for Best Matching), is a probabilistic ranking function. It is based on probabilistic relevance model, devised by \citep{robertson1996okapi}. 
 
+BM25 uses a bag-of-words representation of a document, a representation that ignores the relative ordering of words in the document and the query. It isn't one stand-alone method, but is actually a collection of functions, each of which uses different hyperparameters, the outputs of which are combined to give the final similarity score between a document and a query. BM25 uses both term frequencies and inverse document frequencies to compute the final similarity score. The BM25 retrieval formula is part of the BM family of retrieval models and according to the Encyclopedia of database systems (\citep{amati2009bm25}), it defines the document-query matching function as:
 
-\todo[inline, color=green!40]{ADD REFERENCES}
+\begin{equation}
+ \sum\limits_{t \in q} (k+l)\frac{\bm{tf}}{k+\bm{tf}} \cdot (k_3+ld) \frac{\bm{tf}_q}{k_3 + \bm{tf}_q} \cdot ln\frac{ (r_t +0.5) \cdot (N-R-n_t+r_t+0.5) }{(n_t-r_t+0.5) \cdot (R-r_t+0.5)}
+\end{equation}
+where
+\begin{itemize}
+\item $R$ is the number of documents know to be relevant to a specific topic,
+\item $r_t$ is the number of relevant documents containing the term,
+\item $N$ is the number of documents of the collection, 
+\item $n_t$ is the document frequency of the term,
+\item $\bm{tf}$ is the frequency of the term in the document,
+\item $q$ is the query,
+\item $\bm{tf}_q$ is the frequency of the term within the topic from which $q$ was derived
+\item $l$ is the document length
+\item $k$ is $k_1( ( 1-b ) + b( \Tfrac{l}{1} ) )$
+\item $k,1$, $b$ and $k_3$ are parameters which depend on the nature of the queries and possibly the database
+
+\end{itemize}
+
 
 
 \subsection{Stemmers}
-In most languages and predominantly so in English, words occur in dif-
-ferent forms even though they have the same meaning. For example
-\lq democracy', \lq democratic' , \lq democratize' all have the same deriva-
-tion and although they’re used in different contexts, they have the same
-\lq semantic' meaning. More often than not, it would be useful to search for
-using just one of the forms and have documents retrieved that con-
-tain all semantically similar forms.
-Lemmatization is a crude heuristic process that aims to achieve this by
-removing the ends of the words so that different forms of the same word,
-after processing, lead to the same, shortened form. So in the example
-above, all three words would map to ’democraci’ after processing.
-We used the porter stemmer [TODO: Insert Citation] for our experiments (although there ex-
-ist many other different stemming algorithms that aim to achieve a good
-’lemmatization’)
+
+In most languages and predominantly so in English, words occur in different forms even though they have the same meaning. For example \lq democracy', \lq democratic' , \lq democratize' all have the same derivation and although they're used in different contexts, they have the same \lq semantic' meaning. More often than not, it would be useful to search for using just one of the forms and have documents retrieved that contain all semantically similar forms. Lemmatization is a crude heuristic process that aims to achieve this by removing the ends of the words so that different forms of the same word, after processing, lead to the same, shortened form. So in the example above, all three words would map to ’democraci’ after processing. We used the porter stemmer [TODO: Insert Citation] for our experiments (although there exist many other different stemming algorithms that aim to achieve a good ’lemmatization’)
+
 \subsection{Stopwords}
-Most search engines preprocess both indexed text and search queries so as to
-remove commonly occurring words that are of little value to the context
-of the document. Words like \lq A', \lq and',\lq the', \lq of' etc are found abundantly in
-most English documents but add no overall value to the indexing, ranking
-or retrieval process. The average size of stopword collections is between
-200 - 300 terms [TODO: Insert Citation].
-We experimented with using the Lucene in-built stopword list, which although
-not exhaustive (relative to some of the stop-word corpora available), is 
-sufficiently good. 
+
+Most search engines preprocess both indexed text and search queries so as to remove commonly occurring words that are of little value to the context of the document. Words like \lq A', \lq and',\lq the', \lq of' etc are found abundantly in most English documents but add no overall value to the indexing, ranking or retrieval process. The average size of stopword collections is between 200 - 300 terms [TODO: Insert Citation]. We experimented with using the Lucene in-built stopword list, which although not exhaustive (relative to some of the stop-word corpora available), is sufficiently good. 
 
 \section{Evaluation}
 
-\todo[inline, color=green!40]{Add text and charts}
-\textbf{Precision}
+To evaluate the results, we used precision, recall and \textit{11-point precision recall curves}. Precision (a.k.a. positive predictive value) is the fraction of the \textit{retrieved relevant documents to the number of retrieved documents}, whereas recall (a.k.a. sensitivity) is the fraction of the \textit{retrieved relevant documents to all relevant documents} \citep{buckland1994relationship}. If we denote the amount of \textit{relevant documents} with $N_{rel}$ and the amount of \textit{retrieved documents} with $ N_{ret} $, we get the following formulas for precision and recall:
 
-\textbf{Recall}
+\begin{equation}
+precision = \frac{ \abs{ N_{rel} \cap N_{ret} } }{\abs{N_{ret}}}
+\end{equation}
+\begin{equation}
+recall = \frac{ \abs{N_{rel} \cap N_{ret} } }{\abs{N_{rel}}}
+\end{equation}
 
-\textbf{Eleven point precision recall curve}
-
+Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}. Uninterpolated precision-recall graph has a saw-tooth like shape.
 
 \section{Conclusions}
 
@@ -238,16 +254,18 @@ for 4-6 hours straight at Maari and woked on it. Although this style might be de
 as a sloppy, we'd like to think of it as pair programming on speed - in that 
 the fact that we sat together and worked on it enabled almost seamless debugging
 and ideation.\\
-A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we add this?]
-\todo[inline, color=green!40]{Mind map style of work division might look neat?}
 
-\begin{figure}[p]
-    \centering
-    \includegraphics[scale=0.6]{contributions_tree.pdf}
-    \caption{Contributions represented in a mindmap}
-    \label{fig:contributions_tree}
-\end{figure}
-\FloatBarrier
+A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we add this?][Probably not]
+
+
+
+%\begin{figure}[p]
+%    \centering
+%    \includegraphics[scale=0.6]{contributions_tree.pdf}
+%    \caption{Contributions represented in a mindmap}
+%    \label{fig:contributions_tree}
+%\end{figure}
+%\FloatBarrier
 
 %\begin{figure}[h]
 
@@ -256,7 +274,7 @@ A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we 
 \bibliographystyle{plainnat}
 \bibliography{bibliography.bib}
 
-\todo[inline, color=green!40]{Add more references}
+
 
 \appendix
 \section{Installation instructions} \label{App:instructions}

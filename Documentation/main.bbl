@@ -1,9 +1,15 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Amati(2009)]{amati2009bm25}
+Giambattista Amati.
+\newblock Bm25.
+\newblock In \emph{Encyclopedia of Database Systems}, pages 257--260. Springer,
+  2009.
 
 \bibitem[Baeza-Yates et~al.(1999)Baeza-Yates, Ribeiro-Neto,
   et~al.]{baeza1999modern}
@@ -11,10 +17,43 @@ Ricardo Baeza-Yates, Berthier Ribeiro-Neto, et~al.
 \newblock \emph{Modern information retrieval}, volume 463.
 \newblock ACM press New York, 1999.
 
+\bibitem[Buckland and Gey(1994)]{buckland1994relationship}
+Michael~K. Buckland and Fredric~C. Gey.
+\newblock The relationship between recall and precision.
+\newblock \emph{JASIS}, 45\penalty0 (1):\penalty0 12--19, 1994.
+
+\bibitem[Dubin(2004)]{dubin2004most}
+David Dubin.
+\newblock The most influential paper gerard salton never wrote.
+\newblock 2004.
+
 \bibitem[Hiemstra(2009)]{hiemstra2009information}
 Djoerd Hiemstra.
 \newblock Information retrieval models.
 \newblock \emph{Information Retrieval: searching in the 21st Century}, pages
   2--19, 2009.
+
+\bibitem[Robertson et~al.(1996)Robertson, Walker, Beaulieu, Gatford, and
+  Payne]{robertson1996okapi}
+Stephen~E Robertson, Steve Walker, MM~Beaulieu, Mike Gatford, and Alison Payne.
+\newblock Okapi at trec-4.
+\newblock In \emph{Proceedings of the fourth text retrieval conference}, volume
+  500, pages 73--97. NIST Special Publication, 1996.
+
+\bibitem[Salton et~al.(1975)Salton, Wong, and
+  Yang]{Salton:1975:VSM:361219.361220}
+G.~Salton, A.~Wong, and C.~S. Yang.
+\newblock A vector space model for automatic indexing.
+\newblock \emph{Commun. ACM}, 18\penalty0 (11):\penalty0 613--620, November
+  1975.
+\newblock ISSN 0001-0782.
+\newblock \doi{10.1145/361219.361220}.
+\newblock URL \url{http://doi.acm.org/10.1145/361219.361220}.
+
+\bibitem[Zhang and Zhang(2009)]{zhang2009eleven}
+Ethan Zhang and Yi~Zhang.
+\newblock Eleven point precision-recall curve.
+\newblock In \emph{Encyclopedia of Database Systems}, pages 981--982. Springer,
+  2009.
 
 \end{thebibliography}
