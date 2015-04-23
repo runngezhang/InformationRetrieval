@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.10)  23 APR 2015 02:52
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.10)  23 APR 2015 03:13
 entering extended mode
  %&-line parsing enabled.
 **main
@@ -473,23 +473,23 @@ File: AaltoSCI_EN_9.pdf Graphic file (type pdf)
 <IR.png, id=21, 443.6575pt x 425.59pt>
 File: IR.png Graphic file (type png)
  <use IR.png> [1] [2 <./IR.png>] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 208.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 215.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 208.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 215.
 
 (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
 ) [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 249--257
+Underfull \hbox (badness 10000) in paragraph at lines 256--264
 
  []
 
-(./main.bbl [6]
+[6] (./main.bbl
 Underfull \hbox (badness 3219) in paragraph at lines 45--52
 []\OT1/cmr/m/n/12 G. Salton, A. Wong, and C. S. Yang.  A vec-tor space model
  []
@@ -505,31 +505,36 @@ Underfull \hbox (badness 1371) in paragraph at lines 45--52
 \OT1/cmr/m/n/12 ber 1975.  ISSN 0001-0782.  doi: 10.1145/361219.361220.  URL
  []
 
-) [7] [8] (./main.aux) ) 
+) [7
+
+] [8
+
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 11620 strings out of 494799
- 208783 string characters out of 1177748
+ 11622 strings out of 494799
+ 208807 string characters out of 1177748
  263499 words of memory out of 3000000
- 14560 multiletter control sequences out of 15000+50000
- 13832 words of font info for 49 fonts, out of 3000000 for 9000
+ 14561 multiletter control sequences out of 15000+50000
+ 14191 words of font info for 50 fonts, out of 3000000 for 9000
  212 hyphenation exceptions out of 8191
  63i,12n,78p,1059b,571s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmmib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (9 pages, 211734 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+mib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt
+12.pfb>
+Output written on main.pdf (9 pages, 220997 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

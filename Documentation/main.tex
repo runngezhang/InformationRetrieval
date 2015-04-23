@@ -171,7 +171,7 @@ Ranking methods are used by search engines to rank matching documents according 
 
 \subsection{VSM}
 
-VSM (Vector Space Model) is an algebraic representation model for objects as vectors of identifiers. Beyond information retrieval, VSM is also used in information filtering and indexing. The concept dates back to the early days of IR and it was first utilized in SMART system \citep{dubin2004most}.
+VSM (Vector Space Model) is an algebraic representation model for objects as vectors of identifiers. Beyond information retrieval, VSM is also used in information filtering and indexing. The concept of VSM dates back to the early days of IR and it was first utilized in SMART system \citep{dubin2004most}.
 
 The core idea of VSM is rather simple: represent documents ($D_j$) and queries ($Q$) as vectors of weights \citep{Salton:1975:VSM:361219.361220}.
 
@@ -182,15 +182,22 @@ D_j = (w_{1,j}, w_{2,j},...,w_{t,j})
 Q = (w_{1,q}, w_{2,q},...,w_{n,q}) 
 \end{equation}
 
-There are several different ways of calculating these weights, but \textit{tf-idf} is one on the best known. Documents are ranked according to their proximity to the query in this space, where proximity corresponds to the similarity of the vectors. Similarity is not calculated as an euclidean distance, but rather as an cosine between the vectors.
+There are several different ways of calculating these weights, but \textit{\textbf{tf-idf} (term frequency- inverse document frequency)} is one on the best known. Documents are ranked according to their proximity to the query in this space, where proximity corresponds to the similarity of the vectors. Similarity is not calculated as an euclidean distance, but rather as an cosine between the vectors.
 
 \begin{equation}
 cos\theta = \frac{D_j \cdot Q}{\norm{D_j} \norm{Q}}  
 \end{equation} 
-Where the norm or length $ \norm{Q} $ is calculated as
+where
 \begin{equation}
-\norm{Q} = \sqrt{\sum\limits_{i=1}^n q_i }  
+\norm{Q} = \sqrt{\sum\limits_{i=1}^n q_i }
 \end{equation}
+\begin{equation}
+\norm{D_j} = \sqrt{\sum\limits_{i=1}^n d_i }
+\end{equation}
+\begin{equation}
+D_j \cdot Q = \sum\limits_{i=1}^n d_i q_i
+\end{equation}
+
 
 %The closer a document vector is to the query vector the higher ranking it receives.
 
@@ -269,13 +276,14 @@ A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we 
 
 %\begin{figure}[h]
 
+\clearpage
 
 \nocite{*}
 \bibliographystyle{plainnat}
 \bibliography{bibliography.bib}
 
 
-
+\clearpage
 \appendix
 \section{Installation instructions} \label{App:instructions}
 
