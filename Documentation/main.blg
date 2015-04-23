@@ -1,28 +1,28 @@
 This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: main.aux
-The style file: plainnat.bst
+The style file: myplainnat.bst
 Database file #1: bibliography.bib.bib
 Warning--empty journal in dubin2004most
 You've used 8 entries,
-            2773 wiz_defined-function locations,
-            649 strings with 6034 characters,
-and the built_in function-call counts, 3958 in all, are:
+            2774 wiz_defined-function locations,
+            652 strings with 6058 characters,
+and the built_in function-call counts, 3894 in all, are:
 = -- 374
 > -- 179
 < -- 11
 + -- 62
 - -- 54
-* -- 289
+* -- 273
 := -- 586
 add.period$ -- 30
 call.type$ -- 8
-change.case$ -- 40
+change.case$ -- 32
 chr.to.int$ -- 8
 cite$ -- 17
-duplicate$ -- 203
-empty$ -- 340
+duplicate$ -- 195
+empty$ -- 332
 format.name$ -- 66
-if$ -- 861
+if$ -- 853
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 9
@@ -30,9 +30,9 @@ newline$ -- 51
 num.names$ -- 32
 pop$ -- 90
 preamble$ -- 1
-purify$ -- 33
+purify$ -- 25
 quote$ -- 0
-skip$ -- 155
+skip$ -- 147
 stack$ -- 0
 substring$ -- 167
 swap$ -- 41

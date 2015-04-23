@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.10)  23 APR 2015 03:13
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.7.10)  23 APR 2015 03:31
 entering extended mode
  %&-line parsing enabled.
 **main
@@ -490,8 +490,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 256--264
  []
 
 [6] (./main.bbl
-Underfull \hbox (badness 3219) in paragraph at lines 45--52
-[]\OT1/cmr/m/n/12 G. Salton, A. Wong, and C. S. Yang.  A vec-tor space model
+Underfull \hbox (badness 2150) in paragraph at lines 45--52
+[]\OT1/cmr/m/n/12 Salton, G., Wong, A., and Yang, C. S.  A vec-tor space model
  []
 
 
@@ -532,7 +532,7 @@ onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
 nts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt
 12.pfb>
-Output written on main.pdf (9 pages, 220997 bytes).
+Output written on main.pdf (9 pages, 220936 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
