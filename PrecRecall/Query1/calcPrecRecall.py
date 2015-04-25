@@ -58,7 +58,15 @@ def compute_precRec(data, n_relevant):
         #Recall
         precRec[retrieved - 1,1] = relevant/n_relevant
 #    print retrieved,relevant,data.shape[0]
+    print retrieved
+    print relevant    
+    precision = relevant/retrieved
+    recall = relevant/n_relevant
+    print "precision: ", precision
+    print "recall: ", recall
+    print "F Score: ", (2*precision*recall)/(precision + recall)
     return precRec
+    
             
 def compute_means():
     pass
@@ -71,7 +79,7 @@ def plot_precRec(data):
     global row
     global index
     #Plot the data to the subplot
-    print row, col, index
+    #print row, col, index
     axarr[row, col].plot(data[:,1], data[:,0])
     a = plotTitles[index]
     axarr[row, col].set_title(a)
@@ -100,7 +108,6 @@ def getData(n_relevant):
     #	    universally ordered plots (across all three queries)
     for filename in sorted(os.listdir(os.getcwd())):
         config, extension = os.path.splitext(filename)
-	print filename
         #Open the file, put it in a numpy array
         if extension == ".csv":
             #I only want to open csv files
@@ -109,6 +116,7 @@ def getData(n_relevant):
             # parsed without throwing up an error by a standard CSV lib
             data = []
             f = open(filename)
+            print filename
             for line in f:
                 line = line.split(',')
                 data.append([line[0], line[-1]]) #Only append the 'score' 

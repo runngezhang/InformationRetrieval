@@ -58,6 +58,14 @@ def compute_precRec(data, n_relevant):
         #Recall
         precRec[retrieved - 1,1] = relevant/n_relevant
 #    print retrieved,relevant,data.shape[0]
+    precision = relevant/retrieved
+    recall = relevant/n_relevant
+    print "retrieved: ", retrieved
+    print "relevant: ", relevant
+    print "precision: ", precision
+    print "recall: ", recall
+    print "F-Score: ", (2*precision*recall)/(precision + recall)
+    print "--------------"
     return precRec
             
 def compute_means():
@@ -109,6 +117,7 @@ def getData(n_relevant):
             # parsed without throwing up an error by a standard CSV lib
             data = []
             f = open(filename)
+            print filename
             for line in f:
                 line = line.split(',')
                 data.append([line[0], line[-1]]) #Only append the 'score' 
