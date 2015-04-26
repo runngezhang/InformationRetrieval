@@ -135,10 +135,9 @@ Text-Based Information Retrieval Systems}\\[0.4cm] % Title of your document
 
 \section{Introduction}
 
-The task of Information retrieval is to obtain information resources, including books, journals and other documents, relevant to the imminent need from information resources. Searches can be based on meta-data or on full-text indexing.
+The task of Information Retrieval (IR) is to obtain information resources, including books, journals and other documents, relevant to the imminent need from information resources. Currently, the most visible information retrieval systems are web search engines. Efficient and effective information retrieval techniques are critical in managing the increasing amount of textual information available in electronic form. Typically, information extraction searches are based on meta-data or full-text indexing.
 
 Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most of the existing text retrieval techniques rely on indexing key-words, although keywords and index terms alone do not sufficiently capture the documents content. Still, the computational difficulties of more advanced systems keep the keyword indexing as the most viable way by far to process large amount of text. 
-
 The generic textual information retrieval process is show in Figure \ref{fig:IR} and it has the following steps:
 \begin{enumerate}
   \item The system builds and index of the documents (\textit{indexing}) 
@@ -154,7 +153,7 @@ The generic textual information retrieval process is show in Figure \ref{fig:IR}
 \end{figure}
 \FloatBarrier
 
-Currently, the most visible information retrieval systems are web search engines. Efficient and effective information retrieval techniques are critical in managing the increasing amount of textual information available in electronic form. 
+
 
 \subsection{Tools}
 
@@ -162,17 +161,17 @@ We used Java with Apache Lucene, to carry out our experiments. Apache Lucene is 
 
 \subsection{Content}
 
-In this paper, we compare the two information retrieval techniques: Vector Space Model (VSM) and BM25. Furthermore, we analyze what effects does the usage of stemmers (porter stemmer) and stopwords have with the retrieval result. The evaluation of our experiments is visualized with eleven point precision-recall curves. 
+In this paper, we compare compare two ranking methods, VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we analyze what effects does the usage of stemmers (porter stemmer) and stopwords have with the retrieval result. The evaluation of our experiments is visualized with eleven point precision-recall curves. 
 
 
 
 \section{Techniques}
 
-Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25).
+Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25). The performance of IR methods are usually enhanced by auxiliary methods such as stemming and stopwords.
 
 \subsection{VSM}
 
-VSM (Vector Space Model) is an algebraic representation model for objects as vectors of identifiers. Beyond information retrieval, VSM is also used in information filtering and indexing. The concept of VSM dates back to the early days of IR and it was first utilized in SMART system \citep{dubin2004most}.
+VSM (Vector Space Model) is an algebraic representation model for objects as vectors of identifiers. Beyond information retrieval, VSM is also used in information filtering and indexing. The concept of VSM dates back to the early days of information retrieval and it was first utilized in an IR system called SMART \citep{dubin2004most}.
 
 The core idea of VSM is rather simple: represent documents ($D_j$) and queries ($Q$) as vectors of weights \citep{Salton:1975:VSM:361219.361220}.
 
@@ -247,7 +246,7 @@ recall = \frac{ \abs{N_{rel} \cap N_{ret} } }{\abs{N_{rel}}}
 
 Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}. Uninterpolated precision-recall graph typically has a saw-tooth like shape and ideal precision recall curves are flat, so that the curve has the precision value 1 at recall value 1 (the right hand corner). 
 
-We evaluated the systems in the following way. Each query was run with both methods (VSM and BM25) and also with the following combination of stopwords and stemmer.
+We evaluated the systems in the following way. Each query was processed with both methods (VSM and BM25) and the following combination of stopwords and stemmer.
 
 \begin{itemize}
 \item No Porter stemmer and no stop words
@@ -256,7 +255,7 @@ We evaluated the systems in the following way. Each query was run with both meth
 \item Porter stemmer with stop words.
 \end{itemize}
 
-All in all, for each query, a total of 8 different scenarios were tested. The results for each query were plotted in a 11-point precision recall curves shown in the Figures \ref{fig:Query1}, \ref{fig:Query2} and \ref{fig:Query3}. The plots are arranged so, that the VSM plots are on the left-hand side and the BM25 plots are on the right-hand side. On the same row are the VSM and BM25 methods using the same combination of stopwords and stemmer. The full result table can be found in Appendix \ref{App:table}. 
+All in all, each query is processed by a total of 8 different scenarios. The results for each query are plotted in a 11-point precision recall curves shown in the Figures \ref{fig:Query1}, \ref{fig:Query2} and \ref{fig:Query3}. The plots are arranged so, that the VSM plots are on the left-hand side and the BM25 plots are on the right-hand side. On the same row are the VSM and BM25 methods using the same combination of stopwords and stemmer. The rest of the results can be found in Appendix \ref{App:table}. 
 
 The queries consist of different words. The first query includes words \textit{content}, \textit{based}, \textit{video}, \textit{annotation}. The second query includes  \textit{automatic}, \textit{semiautomatic}, \textit{video}, \textit{tagging} and the third query includes the words \textit{feature}, \textit{based}, \textit{multimedia}, \textit{annotation}. 
 
@@ -288,7 +287,7 @@ The queries consist of different words. The first query includes words \textit{c
 %Porter stemmer seems to increase precision in the first and second query, but it had smaller precision in the third query.
  
 
-The figures indicate that the usage of porter stemmer increases the precision of the first results. This shows as a step in the precision-recall plots. For example, in the Figure \ref{fig:Query1} the plots with porter stemmer have a precision of 1, for longer than the corresponding plots without porter stemmer. The same pattern is also noticeable in the Figure \ref{fig:Query2} and in the Figure \ref{fig:Query3}, although slightly less visible, . These results seem to confirm some earlier observations about the Porter stemmer, i.e. it tends to give consistent (if rather small) performance benefits across a range of collections \citep{croft1994corpus}. 
+The figures indicate that the usage of porter stemmer increases the precision for the first results. This shows as a step in the precision-recall plots. For example, in the Figure \ref{fig:Query1} the plots with porter stemmer have a precision of 1, for longer than the corresponding plots without porter stemmer. The same pattern is also noticeable in the Figure \ref{fig:Query2} and in the Figure \ref{fig:Query3}, although slightly less visible, . These results seem to confirm some earlier observations about the Porter stemmer, i.e. it tends to give consistent (if rather small) performance benefits across a range of collections \citep{croft1994corpus}. 
 
 The usage of stop words seems to have no noticeable effect in any of the queries. There are some differences between the systems using stop words, but these seem to be arbitrary and minuscule. 
 
@@ -303,7 +302,7 @@ In this paper, we compared two information retrieval algorithms: VSM and BM25. W
 
 \section{Contributions}
 In the end both of us put equal amounts of effort into the project. 
-We used GitHub [TODO: Citation?] for version control and although we did
+We used GitHub (https://github.com/vikkamath/InformationRetrieval.git) for version control and although we did
 some independent work at the comfort of our own homes, a bulk of the work
 was done in a series of \lq hackathon' style, caffeine-fueled meetings, where we just sat
 for 4-6 hours straight at Maari and worked on it. Although this style might be deemed by some

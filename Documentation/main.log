@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Cygwin) (preloaded format=pdflatex 2015.4.26)  26 APR 2015 20:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Cygwin) (preloaded format=pdflatex 2015.4.26)  26 APR 2015 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -570,17 +570,17 @@ Package pdftex.def Info: AaltoSCI_EN_9.pdf used on input line 113.
 <IR.png, id=22, 443.6575pt x 425.59pt>
 File: IR.png Graphic file (type png)
  <use IR.png>
-Package pdftex.def Info: IR.png used on input line 151.
+Package pdftex.def Info: IR.png used on input line 150.
 (pdftex.def)             Requested size: 312.00119pt x 299.29417pt.
  [1] [2 <./IR.png>] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 216.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 215.
 
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 216.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 215.
  [4]
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
@@ -588,22 +588,22 @@ File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 <Query1.png, id=53, 578.16pt x 433.62pt>
 File: Query1.png Graphic file (type png)
  <use Query1.png>
-Package pdftex.def Info: Query1.png used on input line 266.
+Package pdftex.def Info: Query1.png used on input line 265.
 (pdftex.def)             Requested size: 312.00119pt x 233.99913pt.
 
 <Query2.png, id=54, 578.16pt x 433.62pt>
 File: Query2.png Graphic file (type png)
  <use Query2.png>
-Package pdftex.def Info: Query2.png used on input line 274.
+Package pdftex.def Info: Query2.png used on input line 273.
 (pdftex.def)             Requested size: 312.00119pt x 233.99913pt.
  [7 <./Query1.png>]
 <Query3.png, id=59, 578.16pt x 433.62pt>
 File: Query3.png Graphic file (type png)
  <use Query3.png>
-Package pdftex.def Info: Query3.png used on input line 282.
+Package pdftex.def Info: Query3.png used on input line 281.
 (pdftex.def)             Requested size: 312.00119pt x 233.99913pt.
  [8 <./Query2.png> <./Query3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 305--313
+Underfull \hbox (badness 10000) in paragraph at lines 304--312
 
  []
 
@@ -649,7 +649,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (13 pages, 337250 bytes).
+Output written on main.pdf (13 pages, 337195 bytes).
 PDF statistics:
  120 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream
