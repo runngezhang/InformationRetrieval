@@ -132,12 +132,12 @@ Text-Based Information Retrieval Systems}\\[0.4cm] % Title of your document
 
 %In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of stemmers and stop words. For this study, we use Java with Apache Lucene.  
 %\end{abstract}
-
 \section{Introduction}
 
-The task of Information Retrieval (IR) is to obtain information resources, including books, journals and other documents, relevant to the imminent need from a larger collection of information resources. Currently, the most visible information retrieval systems are web search engines. Efficient and effective information retrieval techniques are critical in managing the increasing amount of textual information available in electronic form. Typically, information extraction searches are based on meta-data or full-text indexing.
+The task of Information Retrieval (IR) is to automatically obtain information resources, such as books, journals and documents, relevant to the current need from a larger collection of information resources e.g. the World Wide Web. Currently, the most visible information retrieval systems are web search engines. Efficient and effective information retrieval techniques are critical in managing the increasing amount of textual information available in electronic form. 
+%Typically, information extraction searches are based on meta-data or full-text indexing.
 
-Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most of the existing text retrieval techniques rely on indexing key-words, although keywords and index terms alone do not sufficiently capture the documents content. Still, the computational difficulties of more advanced systems keep the keyword indexing as the most viable way by far to process large amount of text. 
+Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most of the existing text retrieval techniques rely on indexing key-words, although keywords and index terms alone do not sufficiently capture the documents content. Still, the computational difficulties of more advanced systems keep the keyword indexing as the most viable way, by far, to process large amount of text. 
 The generic textual information retrieval process is show in Figure \ref{fig:IR} and it has the following steps:
 \begin{enumerate}
   \item The system builds and index of the documents (\textit{indexing}) 
@@ -157,7 +157,7 @@ The generic textual information retrieval process is show in Figure \ref{fig:IR}
 
 \subsection{Tools}
 
-We used Java with Apache Lucene, to carry out our experiments. Apache Lucene is a free open source information retrieval software library, developed originally by Doug Cutting in 1999.  Lucene is capable of offering high-performance and includes full-featured text search engine.
+We used Java with Apache Lucene, to carry out our experiments. Apache Lucene is a free open source information retrieval software library, developed originally by Doug Cutting in 1999. Lucene is capable of offering high-performance and it includes a full-featured text search engine.
 
 \subsection{Content}
 
@@ -165,7 +165,7 @@ In this paper, we compare compare two ranking methods, VSM (Vector Space Model) 
 
 \section{Techniques}
 
-Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25). The performance of IR methods are usually enhanced by auxiliary methods such as stemming and stopwords.
+Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25). The performance of IR methods is usually enhanced by auxiliary methods such as stemming and stopwords.
 
 \subsection{VSM}
 
@@ -180,7 +180,7 @@ D_j = (w_{1,j}, w_{2,j},...,w_{t,j})
 Q = (w_{1,q}, w_{2,q},...,w_{n,q}) 
 \end{equation}
 
-There are several different ways of calculating these weights, but \textit{\textbf{tf-idf} (term frequency- inverse document frequency)} is one on the best known. Documents are ranked according to their proximity to the query in this space, where proximity corresponds to the similarity of the vectors. Similarity is not calculated as an euclidean distance, but rather as an cosine between the vectors.
+There are several different ways of calculating these weights, but \textit{\textbf{tf-idf} (term frequency- inverse document frequency)} is one on the best known. Documents are ranked according to their proximity to the query in this space, where proximity corresponds to the similarity of the vectors. Similarity is not calculated as an euclidean distance, but rather as a cosine between the vectors.
 
 \begin{equation}
 cos\theta = \frac{D_j \cdot Q}{\norm{D_j} \norm{Q}}  
@@ -239,7 +239,7 @@ precision = \frac{ \abs{ N_{rel} \cap N_{ret} } }{\abs{N_{ret}}}
 recall = \frac{ \abs{N_{rel} \cap N_{ret} } }{\abs{N_{rel}}}
 \end{equation}
 
-Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}. Uninterpolated precision-recall graph typically has a saw-tooth like shape and ideal precision recall curves are flat, so that the curve has the precision value 1 at recall value 1 (the right hand corner). 
+Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}.  The ideal precision recall curves are flat, so that the curve has the precision value 1 at recall value 1 (the right hand corner). However, uninterpolated precision-recall graph typically has a sawtoothlike shape.
 
 We evaluated the systems in the following way. Each query was processed with both methods (VSM and BM25) and the following combination of stopwords and stemmer.
 
