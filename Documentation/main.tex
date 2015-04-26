@@ -37,10 +37,13 @@
 \usepackage{amsmath}
 \usepackage{commath}
 \usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{placeins}
 \usepackage[round]{natbib}
 \usepackage{bm}
+\usepackage{rotating}
+\usepackage{lscape}
 \newcommand{\Tfrac}[2]{%
   \ooalign{%
     $\genfrac{}{}{1.2pt}1{#1}{#2}$\cr%
@@ -146,7 +149,7 @@ The generic textual information retrieval process is show in Figure \ref{fig:IR}
 \end{enumerate}
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.5\textwidth]{IR.png}
+	\includegraphics[width=0.8\textwidth]{IR.png}
 	\caption{Information retrieval pipeline \citep{hiemstra2009information}}
 	\label{fig:IR}
 \end{figure}
@@ -205,7 +208,7 @@ D_j \cdot Q = \sum\limits_{i=1}^n d_i q_i
 
 BM25, often referred to as Okapi BM25 (where BM stands for Best Matching), is a probabilistic ranking function. It is based on probabilistic relevance model, devised by \citep{robertson1996okapi}. 
 
-BM25 uses a bag-of-words representation of a document, a representation that ignores the relative ordering of words in the document and the query. It isn't one stand-alone method, but is actually a collection of functions, each of which uses different hyper-parameters, the outputs of which are combined to give the final similarity score between a document and a query. BM25 uses both term frequencies and inverse document frequencies to compute the final similarity score. The BM25 retrieval formula is part of the BM family of retrieval models and according to the Encyclopedia of database systems (\citep{amati2009bm25}), it defines the document-query matching function as:
+BM25 uses a bag-of-words representation of a document, a representation that ignores the relative ordering of words in the document and the query. It isn't one stand-alone method, but is actually a collection of functions, each of which uses different hyper-parameters, the outputs of which are combined to give the final similarity score between a document and a query. BM25 uses both term frequencies and inverse document frequencies to compute the final similarity score. The BM25 retrieval formula is part of the BM family of retrieval models and according to the Encyclopedia of database systems \citep{amati2009bm25}, it defines the document-query matching function as:
 
 \begin{equation}
  \sum\limits_{t \in q} (k+l)\frac{\bm{tf}}{k+\bm{tf}} \cdot (k_3+ld) \frac{\bm{tf}_q}{k_3 + \bm{tf}_q} \cdot ln\frac{ (r_t +0.5) \cdot (N-R-n_t+r_t+0.5) }{(n_t-r_t+0.5) \cdot (R-r_t+0.5)}
@@ -224,8 +227,6 @@ where
 \item $k,1$, $b$ and $k_3$ are parameters which depend on the nature of the queries and possibly the database
 
 \end{itemize}
-
-
 
 \subsection{Stemmers}
 
@@ -246,9 +247,55 @@ precision = \frac{ \abs{ N_{rel} \cap N_{ret} } }{\abs{N_{ret}}}
 recall = \frac{ \abs{N_{rel} \cap N_{ret} } }{\abs{N_{rel}}}
 \end{equation}
 
-Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}. Uninterpolated precision-recall graph has a saw-tooth like shape.
+Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}. Uninterpolated precision-recall graph typically has a saw-tooth like shape. Ideal precision recall curves are flat, so that the curve has the precision value 1 at recall value 1 (the right hand corner). 
+
+We evaluated the systems in the following way. Each query was run with both methods (VSM and BM25) and also with the following combination of stopwords and stemmer.
+
+\begin{itemize}
+\item No stemmer and no stop words
+\item No stemmer and stop words 
+\item Stemmer and no stop words
+\item Stemmer with stop words.
+\end{itemize}
+
+All in all, for each query, a total of 8 different scenarios were tested. The results for each query were plotted in a 11-point precision recall curves shown in the Figures \ref{fig:Query1}, \ref{fig:Query2} and \ref{fig:Query3}. The plots are arranged so, that the VSM plots are on the left-hand side and the BM25 plots are on the right-hand side. On the same row are the VSM and BM25 methods using the same combination of stopwords and stemmer. The full result table can be found in Appendix \ref{App:table}. 
+
+The queries consist of different words. The first query includes words \textit{content}, \textit{based}, \textit{video}, \textit{annotation}. The second query includes  \textit{automatic}, \textit{semiautomatic}, \textit{video}, \textit{tagging} and the third query includes the words \textit{feature}, \textit{based}, \textit{multimedia}, \textit{annotation}. 
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Query1.png}
+  \caption{Query 1 }
+  \label{fig:Query1}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Query2.png}
+  \caption{Query 2 }
+  \label{fig:Query2}
+\end{figure}
+\FloatBarrier
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Query3.png}
+  \caption{Query 3 }
+  \label{fig:Query3}
+\end{figure}
+\FloatBarrier
+
+
+The first observation from the above figures is that the use of stemmer keeps the precision higher for lower values of recall. 
+
+
 
 \section{Conclusions}
+
+%All in all, the evaluation of information retrieval systems is hard. In this assignment, the evaluation methods are quite laboratory model. 
+
 
 \todo[inline, color=green!40]{Add conclusions}
 
@@ -262,9 +309,7 @@ as a sloppy, we'd like to think of it as pair programming on speed - in that
 the fact that we sat together and worked on it enabled almost seamless debugging
 and ideation.\\
 
-A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we add this?][Probably not]
-
-
+%A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we add this?][Probably not]
 
 %\begin{figure}[p]
 %    \centering
@@ -287,7 +332,6 @@ A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we 
 \appendix
 \section{Installation instructions} \label{App:instructions}
 
-
 Here is a brief systems installation and system configuration instructions. 
 
 \begin{enumerate}
@@ -309,5 +353,69 @@ files relevant to the query. Each of the query folders also contains a python sc
 that consumes the csv files in the folder and computes the 11-point non-interpolated precision recall curve,
 which is then saved into a \lq plot.png' file in the same folder. 
 \end{enumerate}
+
+\newpage
+\section{Full result table} \label{App:table}
+
+\begin{table}[h]
+\centering
+\resizebox { 1.0\textwidth }{!}{ 
+\begin{tabular}{lllllllll}
+\rowcolor[HTML]{000000} 
+{\color[HTML]{FFFFFF} Query Number} & {\color[HTML]{FFFFFF} Stemmer} & {\color[HTML]{FFFFFF} StopWords} & {\color[HTML]{FFFFFF} VSM/BM25} & {\color[HTML]{FFFFFF} Retrieved} & {\color[HTML]{FFFFFF} Relevant} & {\color[HTML]{FFFFFF} Precision} & {\color[HTML]{FFFFFF} Recall} & {\color[HTML]{FFFFFF} F-Score} \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & None                           & No                               & VSM                             & 54                               & 38                              & 0,7037                           & 1                             & 0,826                          \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & None                           & No                               & BM25                            & 54                               & 38                              & 0,7037                           & 1                             & 0,826                          \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & None                           & Yes                              & VSM                             & 54                               & 38                              & 0,7037                           & 1                             & 0,826                          \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & None                           & Yes                              & BM25                            & 54                               & 38                              & 0,7037                           & 1                             & 0,826                          \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & Porter                         & No                               & VSM                             & 53                               & 38                              & 0,7169                           & 1                             & 0,8351                         \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & Porter                         & No                               & BM25                            & 53                               & 38                              & 0,7169                           & 1                             & 0,8351                         \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & Porter                         & Yes                              & VSM                             & 53                               & 38                              & 0,7169                           & 1                             & 0,8351                         \\
+\rowcolor[HTML]{EFEFEF} 
+1                                   & Porter                         & Yes                              & BM25                            & 53                               & 38                              & 0,7169                           & 1                             & 0,8351                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & None                           & No                               & VSM                             & 41                               & 34                              & 0,8292                           & 0,8947                        & 0,8607                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & None                           & No                               & BM25                            & 41                               & 34                              & 0,8292                           & 0,8947                        & 0,8607                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & None                           & Yes                              & VSM                             & 40                               & 33                              & 0,825                            & 0,8684                        & 0,8461                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & None                           & Yes                              & BM25                            & 40                               & 33                              & 0,825                            & 0,8684                        & 0,8461                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & Porter                         & No                               & VSM                             & 43                               & 34                              & 0,7906                           & 0,8947                        & 0,8395                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & Porter                         & No                               & BM25                            & 43                               & 34                              & 0,7906                           & 0,8947                        & 0,8395                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & Porter                         & Yes                              & VSM                             & 45                               & 35                              & 0,7777                           & 0,921                         & 0,8433                         \\
+\rowcolor[HTML]{C0C0C0} 
+2                                   & Porter                         & Yes                              & BM25                            & 45                               & 35                              & 0,7777                           & 0,921                         & 0,8433                         \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & None                           & No                               & VSM                             & 48                               & 34                              & 0,7083                           & 0,8947                        & 0,7906                         \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & None                           & No                               & BM25                            & 49                               & 34                              & 0,6938                           & 0,8947                        & 0,7816                         \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & None                           & Yes                              & VSM                             & 48                               & 33                              & 0,6875                           & 0,8684                        & 0,7674                         \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & None                           & Yes                              & BM25                            & 48                               & 33                              & 0,6875                           & 0,8684                        & 0,7674                         \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & Porter                         & No                               & VSM                             & 46                               & 33                              & 0,7173                           & 0,8684                        & 0,7857                         \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & Porter                         & No                               & BM25                            & 46                               & 33                              & 0,7173                           & 0,8684                        & 0,7857                         \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & Porter                         & Yes                              & VSM                             & 47                               & 34                              & 0,7234                           & 0,8947                        & 0,8                            \\
+\rowcolor[HTML]{9B9B9B} 
+3                                   & Porter                         & Yes                              & BM25                            & 47                               & 34                              & 0,7234                           & 0,8947                        & 0,8                           
+\end{tabular}}
+\caption{All results}
+\label{fig:table}
+\end{table}
+
+\FloatBarrier
 
 \end{document}

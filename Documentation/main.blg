@@ -1,47 +1,14 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
-The top-level auxiliary file: main.aux
-The style file: myplainnat.bst
-Database file #1: bibliography.bib.bib
-Warning--empty journal in dubin2004most
-You've used 8 entries,
-            2774 wiz_defined-function locations,
-            652 strings with 6058 characters,
-and the built_in function-call counts, 3894 in all, are:
-= -- 374
-> -- 179
-< -- 11
-+ -- 62
-- -- 54
-* -- 273
-:= -- 586
-add.period$ -- 30
-call.type$ -- 8
-change.case$ -- 32
-chr.to.int$ -- 8
-cite$ -- 17
-duplicate$ -- 195
-empty$ -- 332
-format.name$ -- 66
-if$ -- 853
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 9
-newline$ -- 51
-num.names$ -- 32
-pop$ -- 90
-preamble$ -- 1
-purify$ -- 25
-quote$ -- 0
-skip$ -- 147
-stack$ -- 0
-substring$ -- 167
-swap$ -- 41
-text.length$ -- 6
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 83
-warning$ -- 1
-while$ -- 40
-width$ -- 0
-write$ -- 119
-(There was 1 warning)
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+I couldn't open style file myplainnat.bst
+---line 35 of file main.aux
+ : \bibstyle{myplainnat
+ :                     }
+I'm skipping whatever remains of this command
+I couldn't open database file bibliography.bib.bib
+---line 36 of file main.aux
+ : \bibdata{bibliography.bib
+ :                          }
+I'm skipping whatever remains of this command
+I found no database files---while reading file main.aux
+I found no style file---while reading file main.aux
+(There were 4 error messages)
