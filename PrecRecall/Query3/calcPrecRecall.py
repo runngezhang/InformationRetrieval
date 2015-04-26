@@ -24,7 +24,7 @@ plotTitles = ['SA, NSW, VSM',
               'SA, Stem, SW, VSM',
               'SA, Stem, SW, BM25']
 
-f, axarr = plt.subplots(4,2)
+f, axarr = plt.subplots(4,2, sharex=True, sharey=True)
 f.tight_layout()
 row = 0 #Row index for subplots
 col = 0 #Column index for subplots 
