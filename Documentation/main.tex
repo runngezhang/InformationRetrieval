@@ -284,19 +284,18 @@ The queries consist of different words. The first query includes words \textit{c
 \end{figure}
 \FloatBarrier
 
-%Porter stemmer seems to increase precision in the first and second query, but it had smaller precision in the third query.
- 
 
 The figures indicate that the usage of porter stemmer increases the precision for the first results. This shows as a step in the precision-recall plots. For example, in the Figure \ref{fig:Query1} the plots with porter stemmer have a precision of 1, for longer than the corresponding plots without porter stemmer. The same pattern is also noticeable in the Figure \ref{fig:Query2} and in the Figure \ref{fig:Query3}, although slightly less visible, . These results seem to confirm some earlier observations about the Porter stemmer, i.e. it tends to give consistent (if rather small) performance benefits across a range of collections \citep{croft1994corpus}. 
 
 The usage of stop words seems to have no noticeable effect in any of the queries. There are some differences between the systems using stop words, but these seem to be arbitrary and minuscule. 
 
+Although the ranking order of documents between the two methods were quite different, we were surprised to notice that the different methods have very little difference when plotted against precision-recall plot.  
 
-
+We were able to find one anomality in the data, which is a Document titled \lq Enhancing search in a geospatial multimedia annotation system'. It has a relevance of \lq 3', or in other words, it has an undefined relevance value as the relevance should be just a boolean value. We got around it, by marking it as \lq 0'. This is why, the precision-recall plots dip so early for the query 3.
 
 \section{Conclusions}
 
-In this paper, we compared two information retrieval algorithms: VSM and BM25. We also tested what effects does the usage of stemmer and stopwords have on the outcome. We found out that there is no single or couple straightforward factors explaining the differences between the results. 
+In this paper, we compared two information retrieval algorithms: VSM and BM25. We also tested what effects does the usage of stemmer and stopwords have on the outcome. We found out that the use of Porter stemmer had the largest influence on the precision-recall curves. Rather surprisingly, the usage of stopwords or the usage of different methods (VSM and BM25) had very little effect on the precision-recall plots of the results. 
 
 
 
