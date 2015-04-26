@@ -65,6 +65,8 @@ def compute_precRec(data, n_relevant):
     print "Precision: ", precision
     print "Recall: ", recall
     print "F-Score: ", (2*precision*recall)/(precision + recall)
+    means = precRec.mean(axis=0)
+    print "Average precision: ", means[0]
     print "-----------------------"
     return precRec
             
