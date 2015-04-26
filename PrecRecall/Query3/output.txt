@@ -1,0 +1,72 @@
+1_query3_Standard_NSW_VSM.csv
+Retrieved:  48
+Relevant:  34
+Precision:  0.708333333333
+Recall:  0.894736842105
+F-Score:  0.790697674419
+Average precision:  0.810663747732
+-----------------------
+0 0 0
+2_query3_Standard_NSW_BM25.csv
+Retrieved:  49
+Relevant:  34
+Precision:  0.69387755102
+Recall:  0.894736842105
+F-Score:  0.781609195402
+Average precision:  0.762254079456
+-----------------------
+0 1 1
+3_query3_Standard_SW_BM25.csv
+Retrieved:  48
+Relevant:  33
+Precision:  0.6875
+Recall:  0.868421052632
+F-Score:  0.767441860465
+Average precision:  0.726975621982
+-----------------------
+1 0 2
+4_query3_Standard_SW_VSM.csv
+Retrieved:  48
+Relevant:  33
+Precision:  0.6875
+Recall:  0.868421052632
+F-Score:  0.767441860465
+Average precision:  0.779189980084
+-----------------------
+1 1 3
+5_query3_Porter_NSW_VSM.csv
+Retrieved:  46
+Relevant:  33
+Precision:  0.717391304348
+Recall:  0.868421052632
+F-Score:  0.785714285714
+Average precision:  0.787957727438
+-----------------------
+2 0 4
+6_query3_Porter_NSW_BM25.csv
+Retrieved:  46
+Relevant:  33
+Precision:  0.717391304348
+Recall:  0.868421052632
+F-Score:  0.785714285714
+Average precision:  0.75461700535
+-----------------------
+2 1 5
+7_query3_Porter_SW_VSM.csv
+Retrieved:  47
+Relevant:  34
+Precision:  0.723404255319
+Recall:  0.894736842105
+F-Score:  0.8
+Average precision:  0.789232563158
+-----------------------
+3 0 6
+8_query3_Porter_SW_BM25.csv
+Retrieved:  47
+Relevant:  34
+Precision:  0.723404255319
+Recall:  0.894736842105
+F-Score:  0.8
+Average precision:  0.765774362543
+-----------------------
+3 1 7
