@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Cygwin) (preloaded format=pdflatex 2015.4.26)  26 APR 2015 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Cygwin) (preloaded format=pdflatex 2015.4.26)  26 APR 2015 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -584,32 +584,31 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
  [4]
 (/usr/share/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-) [5] [6]
-<Query1.png, id=53, 578.16pt x 433.62pt>
+) [5]
+<Query1.png, id=49, 578.16pt x 433.62pt>
 File: Query1.png Graphic file (type png)
  <use Query1.png>
 Package pdftex.def Info: Query1.png used on input line 265.
 (pdftex.def)             Requested size: 312.00119pt x 233.99913pt.
-
+ [6]
 <Query2.png, id=54, 578.16pt x 433.62pt>
 File: Query2.png Graphic file (type png)
  <use Query2.png>
 Package pdftex.def Info: Query2.png used on input line 273.
 (pdftex.def)             Requested size: 312.00119pt x 233.99913pt.
- [7 <./Query1.png>]
-<Query3.png, id=59, 578.16pt x 433.62pt>
+ [7 <./Query1.png> <./Query2.png>] <Query3.png, id=60, 578.16pt x 433.62pt>
 File: Query3.png Graphic file (type png)
  <use Query3.png>
 Package pdftex.def Info: Query3.png used on input line 281.
 (pdftex.def)             Requested size: 312.00119pt x 233.99913pt.
- [8 <./Query2.png> <./Query3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 303--311
+ [8
+
+ <./Query3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 
  []
 
-[9
-
-] [10] (./main.bbl
+[9] (./main.bbl
 Underfull \hbox (badness 2150) in paragraph at lines 61--68
 []\OT1/cmr/m/n/12 Salton, G., Wong, A., and Yang, C. S.  A vec-tor space model
  []
@@ -625,11 +624,11 @@ Underfull \hbox (badness 1371) in paragraph at lines 61--68
 \OT1/cmr/m/n/12 ber 1975.  ISSN 0001-0782.  doi: 10.1145/361219.361220.  URL
  []
 
-) [11
+) [10
 
-] [12
+] [11
 
-] [13] (./main.aux) ) 
+] [12] (./main.aux) ) 
 Here is how much of TeX's memory you used:
  14071 strings out of 493117
  266891 string characters out of 6141204
@@ -649,10 +648,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (14 pages, 337989 bytes).
+Output written on main.pdf (13 pages, 337799 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 120 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

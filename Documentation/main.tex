@@ -163,8 +163,6 @@ We used Java with Apache Lucene, to carry out our experiments. Apache Lucene is 
 
 In this paper, we compare compare two ranking methods, VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we analyze what effects does the usage of stemmers (porter stemmer) and stopwords have with the retrieval result. The evaluation of our experiments is visualized with eleven point precision-recall curves. 
 
-
-
 \section{Techniques}
 
 Ranking methods are used by search engines to rank matching documents according to their relevance to a given search query. Most common approaches to information retrieval are algebraic (e.g. VSM) and probabilistic (e.g. BM25). The performance of IR methods are usually enhanced by auxiliary methods such as stemming and stopwords.
@@ -197,9 +195,6 @@ where
 \begin{equation}
 D_j \cdot Q = \sum\limits_{i=1}^n d_i q_i
 \end{equation}
-
-
-%The closer a document vector is to the query vector the higher ranking it receives.
 
 \subsection{BM25}
 
@@ -257,7 +252,7 @@ We evaluated the systems in the following way. Each query was processed with bot
 
 All in all, each query is processed by a total of 8 different scenarios. The results for each query are plotted in a 11-point precision recall curves shown in the Figures \ref{fig:Query1}, \ref{fig:Query2} and \ref{fig:Query3}. The plots are arranged so, that the VSM plots are on the left-hand side and the BM25 plots are on the right-hand side. On the same row are the VSM and BM25 methods using the same combination of stopwords and stemmer. The rest of the results can be found in Appendix \ref{App:table}. 
 
-The queries consist of different words. The first query includes words \textit{content}, \textit{based}, \textit{video}, \textit{annotation}. The second query includes  \textit{automatic}, \textit{semiautomatic}, \textit{video}, \textit{tagging} and the third query includes the words \textit{feature}, \textit{based}, \textit{multimedia}, \textit{annotation}. 
+%The queries consist of different words. The first query includes words \textit{content}, \textit{based}, \textit{video}, \textit{annotation}. The second query includes  \textit{automatic}, \textit{semiautomatic}, \textit{video}, \textit{tagging} and the third query includes the words \textit{feature}, \textit{based}, \textit{multimedia}, \textit{annotation}. 
 
 
 \begin{figure}[ht]
@@ -289,37 +284,18 @@ The figures indicate that the usage of porter stemmer increases the precision fo
 
 The usage of stop words seems to have no noticeable effect in any of the queries. There are some differences between the systems using stop words, but these seem to be arbitrary and minuscule. 
 
-Although the ranking order of documents between the two methods were quite different, we were surprised to notice that the different methods have very little difference when plotted against precision-recall plot.  
+Although the ranking order of documents between the two methods were quite different, we were surprised to notice that the different methods have very little difference when plotted against precision-recall plot. Also the F-score values (Table \ref{fig:table}) are similar across the different queries and parameters.
 
-We were able to find one anomality in the data, which is a Document titled \lq Enhancing search in a geospatial multimedia annotation system'. It has a relevance of \lq 3', or in other words, it has an undefined relevance value as the relevance should be just a boolean value. We got around it, by marking it as \lq 0'. This is why, the precision-recall plots dip so early for the query 3.
+We were able to find one anomality in the data, which is a document titled \lq Enhancing search in a geospatial multimedia annotation system'. It has a relevance of \lq 3', or in other words, it has an undefined relevance value as the relevance should be just a boolean value. We got around it, by marking it as \lq 0'. The reason the precision-recall plots dip so early, for the query 3, is because the methods ranked the document quite high. 
 
 \section{Conclusions}
 
 In this paper, we compared two information retrieval algorithms: VSM and BM25. We also tested what effects does the usage of stemmer and stopwords have on the outcome. We found out that the use of Porter stemmer had the largest influence on the precision-recall curves. Rather surprisingly, the usage of stopwords or the usage of different methods (VSM and BM25) had very little effect on the precision-recall plots of the results. 
 
 
-
 \section{Contributions}
-In the end both of us put equal amounts of effort into the project. 
-We used GitHub (https://github.com/vikkamath/InformationRetrieval.git) for version control and although we did
-some independent work at the comfort of our own homes, a bulk of the work
-was done in a series of \lq hackathon' style, caffeine-fueled meetings, where we just sat
-for 4-6 hours straight at Maari and worked on it. Although this style might be deemed by some
-as a sloppy, we'd like to think of it as pair programming on speed - in that 
-the fact that we sat together and worked on it enabled almost seamless debugging
-and ideation.\\
 
-%A diagrammatic (albeit) rough division of tasks is shown below [TODO: Should we add this?][Probably not]
-
-%\begin{figure}[p]
-%    \centering
-%    \includegraphics[scale=0.6]{contributions_tree.pdf}
-%    \caption{Contributions represented in a mindmap}
-%    \label{fig:contributions_tree}
-%\end{figure}
-%\FloatBarrier
-
-%\begin{figure}[h]
+In the end both of us put equal amounts of effort into the project. We used GitHub (SOURCE?) for version control and although we did some independent work at the comfort of our own homes, a bulk of the work was done in a series of \lq hackathon' style, caffeine-fueled meetings, where we just sat for 4-6 hours straight at Maari and worked on it. Although this style might be deemed by some as a sloppy, we'd like to think of it as pair programming on speed - in that the fact that we sat together and worked on it enabled almost seamless debugging and ideation.\\
 
 \clearpage
 
