@@ -1,47 +1,48 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2014/Cygwin)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: myplainnat.bst
 Database file #1: bibliography.bib.bib
 Warning--empty journal in dubin2004most
-You've used 8 entries,
+You've used 11 entries,
             2774 wiz_defined-function locations,
-            652 strings with 6058 characters,
-and the built_in function-call counts, 3894 in all, are:
-= -- 374
-> -- 179
-< -- 11
-+ -- 62
-- -- 54
-* -- 273
-:= -- 586
-add.period$ -- 30
-call.type$ -- 8
-change.case$ -- 32
-chr.to.int$ -- 8
-cite$ -- 17
-duplicate$ -- 195
-empty$ -- 332
-format.name$ -- 66
-if$ -- 853
+            670 strings with 6432 characters,
+and the built_in function-call counts, 5036 in all, are:
+= -- 471
+> -- 240
+< -- 14
++ -- 83
+- -- 72
+* -- 356
+:= -- 769
+add.period$ -- 39
+call.type$ -- 11
+change.case$ -- 42
+chr.to.int$ -- 11
+cite$ -- 23
+duplicate$ -- 253
+empty$ -- 434
+format.name$ -- 89
+if$ -- 1092
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 9
-newline$ -- 51
-num.names$ -- 32
-pop$ -- 90
+missing$ -- 14
+newline$ -- 66
+num.names$ -- 44
+pop$ -- 124
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 34
 quote$ -- 0
-skip$ -- 147
+skip$ -- 187
 stack$ -- 0
-substring$ -- 167
-swap$ -- 41
-text.length$ -- 6
+substring$ -- 198
+swap$ -- 45
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 83
+type$ -- 106
 warning$ -- 1
-while$ -- 40
+while$ -- 51
 width$ -- 0
-write$ -- 119
+write$ -- 157
 (There was 1 warning)

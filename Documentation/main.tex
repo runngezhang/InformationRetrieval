@@ -127,17 +127,17 @@ Text-Based Information Retrieval Systems}\\[0.4cm] % Title of your document
 
 %\todo[inline, color=green!40]{Too messy titlepage?}
 
-\begin{abstract}
-As the amount of data available in electronic form increases continuously, efficient and effective information retrieval techniques are critical. It has been estimated that the amount of data on the Internet doubles every second year. Thus, it is no wonder, that most visible current information retrieval systems are web search engines.
+%\begin{abstract}
+%As the amount of data available in electronic form increases continuously, efficient and effective information retrieval techniques are critical. It has been estimated that the amount of data on the Internet doubles every second year. Thus, it is no wonder, that most visible current information retrieval systems are web search engines.
 
-In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of stemmers and stop words. For this study, we use Java with Apache Lucene.  
-\end{abstract}
+%In this paper, we compare compare two ranking methods: VSM (Vector Space Model) and BM25 for document collection from ACM digital library database. Furthermore, we study the effects of stemmers and stop words. For this study, we use Java with Apache Lucene.  
+%\end{abstract}
 
 \section{Introduction}
 
 The task of Information retrieval is to obtain information resources, including books, journals and other documents, relevant to the imminent need from information resources. Searches can be based on meta-data or on full-text indexing.
 
-Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most of the existing text retrieval techniques rely on indexing key-words, although keywords and index terms alone do not sufficiently capture the documents content. Still, the computational difficulties of more advanced systems keeps the keyword indexing as the most viable way by far to process large amount of text. 
+Automated information retrieval systems are used to reduce the so called \textit{information overload}, i.e. the difficulty of a person to understand an issue due to overwhelming amounts of information. Most of the existing text retrieval techniques rely on indexing key-words, although keywords and index terms alone do not sufficiently capture the documents content. Still, the computational difficulties of more advanced systems keep the keyword indexing as the most viable way by far to process large amount of text. 
 
 The generic textual information retrieval process is show in Figure \ref{fig:IR} and it has the following steps:
 \begin{enumerate}
@@ -154,16 +154,15 @@ The generic textual information retrieval process is show in Figure \ref{fig:IR}
 \end{figure}
 \FloatBarrier
 
-Efficient and effective information retrieval techniques are critical in managing the increased amount of textual information available in electronic form. Therefore, it is no wonder that currently the most visible IR systems are web search engines.  
+Currently, the most visible information retrieval systems are web search engines. Efficient and effective information retrieval techniques are critical in managing the increasing amount of textual information available in electronic form. 
 
 \subsection{Tools}
-
 
 We used Java with Apache Lucene, to carry out our experiments. Apache Lucene is a free open source information retrieval software library, developed originally by Doug Cutting in 1999.  Lucene is capable of offering high-performance and includes full-featured text search engine.
 
 \subsection{Content}
 
-In this paper, we compare the two information retrieval techniques: Vector Space Model (VSM) and BM25. Furthermore, we analyze what effects does the usage of stemmers (porter stemmer) and stopwords have with the retrieval result. The evaluation of our experiments is visualized with eleven point precision recall curves. 
+In this paper, we compare the two information retrieval techniques: Vector Space Model (VSM) and BM25. Furthermore, we analyze what effects does the usage of stemmers (porter stemmer) and stopwords have with the retrieval result. The evaluation of our experiments is visualized with eleven point precision-recall curves. 
 
 
 
@@ -229,11 +228,11 @@ where
 
 \subsection{Stemmers}
 
-In most languages and predominantly so in English, words occur in different forms even though they have the same meaning. For example \lq democracy', \lq democratic' , \lq democratize' all have the same derivation and although they're used in different contexts, they have the same \lq semantic' meaning. More often than not, it would be useful to search for using just one of the forms and have documents retrieved that contain all semantically similar forms. Lemmatization is a crude heuristic process that aims to achieve this by removing the ends of the words so that different forms of the same word, after processing, lead to the same, shortened form. So in the example above, all three words would map to ’democraci’ after processing. We used the porter stemmer [TODO: Insert Citation] for our experiments (although there exist many other different stemming algorithms that aim to achieve a good ’lemmatization’)
+In most languages and predominantly so in English, words occur in different forms even though they have the same meaning. For example \lq democracy', \lq democratic' , \lq democratize' all have the same derivation and although they're used in different contexts, they have the same \lq semantic' meaning. More often than not, it would be useful to search for using just one of the forms and have documents retrieved that contain all semantically similar forms. Lemmatization is a crude heuristic process that aims to achieve this by removing the ends of the words so that different forms of the same word, after processing, lead to the same, shortened form. So in the example above, all three words would map to ’democraci’ after processing. We used the porter stemmer \citep{porter1980algorithm} for our experiments (although there exist many other different stemming algorithms that aim to achieve a good ’lemmatization’)
 
 \subsection{Stopwords}
 
-Most search engines preprocess both indexed text and search queries so as to remove commonly occurring words that are of little value to the context of the document. Words like \lq A', \lq and',\lq the', \lq of' etc are found abundantly in most English documents but add no overall value to the indexing, ranking or retrieval process. The average size of stopword collections is between 200 - 300 terms [TODO: Insert Citation]. We experimented with using the Lucene in-built stopword list, which although not exhaustive (relative to some of the stop-word corpora available), is sufficiently good. 
+Most search engines preprocess both indexed text and search queries so as to remove commonly occurring words that are of little value to the context of the document. Words like \lq A', \lq and',\lq the', \lq of' etc are found abundantly in most English documents but add no overall value to the indexing, ranking or retrieval process. The average size of stopword collections is between 200 - 300 terms \citep{manning2008introduction}. We experimented with using the Lucene in-built stopword list, which although not exhaustive (relative to some of the stop-word corpora available), is sufficiently good. 
 
 \section{Evaluation}
 
@@ -246,15 +245,15 @@ precision = \frac{ \abs{ N_{rel} \cap N_{ret} } }{\abs{N_{ret}}}
 recall = \frac{ \abs{N_{rel} \cap N_{ret} } }{\abs{N_{rel}}}
 \end{equation}
 
-Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}. Uninterpolated precision-recall graph typically has a saw-tooth like shape. Ideal precision recall curves are flat, so that the curve has the precision value 1 at recall value 1 (the right hand corner). 
+Eleven point precision-recall curve is a graph that plots recall and precision of an information retrieval system at 11 equally spaced recall levels $recall = (0.0, 0.1, 0.2,..., 1.0)$ \citep{zhang2009eleven}. Uninterpolated precision-recall graph typically has a saw-tooth like shape and ideal precision recall curves are flat, so that the curve has the precision value 1 at recall value 1 (the right hand corner). 
 
 We evaluated the systems in the following way. Each query was run with both methods (VSM and BM25) and also with the following combination of stopwords and stemmer.
 
 \begin{itemize}
-\item No stemmer and no stop words
-\item No stemmer and stop words 
-\item Stemmer and no stop words
-\item Stemmer with stop words.
+\item No Porter stemmer and no stop words
+\item No Porter stemmer and stop words 
+\item Porter stemmer and no stop words
+\item Porter stemmer with stop words.
 \end{itemize}
 
 All in all, for each query, a total of 8 different scenarios were tested. The results for each query were plotted in a 11-point precision recall curves shown in the Figures \ref{fig:Query1}, \ref{fig:Query2} and \ref{fig:Query3}. The plots are arranged so, that the VSM plots are on the left-hand side and the BM25 plots are on the right-hand side. On the same row are the VSM and BM25 methods using the same combination of stopwords and stemmer. The full result table can be found in Appendix \ref{App:table}. 
@@ -286,17 +285,19 @@ The queries consist of different words. The first query includes words \textit{c
 \end{figure}
 \FloatBarrier
 
+%Porter stemmer seems to increase precision in the first and second query, but it had smaller precision in the third query.
+ 
 
-The first observation from the above figures is that the use of stemmer keeps the precision higher for lower values of recall. 
+The figures indicate that the usage of porter stemmer increases the precision of the first results. This shows as a step in the precision-recall plots. For example, in the Figure \ref{fig:Query1} the plots with porter stemmer have a precision of 1, for longer than the corresponding plots without porter stemmer. The same pattern is also noticeable in the Figure \ref{fig:Query2} and in the Figure \ref{fig:Query3}, although slightly less visible, . These results seem to confirm some earlier observations about the Porter stemmer, i.e. it tends to give consistent (if rather small) performance benefits across a range of collections \citep{croft1994corpus}. 
+
+The usage of stop words seems to have no noticeable effect in any of the queries. There are some differences between the systems using stop words, but these seem to be arbitrary and minuscule. 
+
+
+
 
 \section{Conclusions}
 
-
-In this paper, we compared two information retrieval algorithms: VSM and BM25. We also tested what effects does the usage of stemmer and stopwords have on the result. We found out that there is no single or couple straightforward factors explaining the differences between the results. Although, the results indicated that the precision-recall curve is slightly higher at the small values of recall when stemmers are used. 
-
-Nevertheless, out results indicate that, while easy, information retrieval is hard a
-
-
+In this paper, we compared two information retrieval algorithms: VSM and BM25. We also tested what effects does the usage of stemmer and stopwords have on the outcome. We found out that there is no single or couple straightforward factors explaining the differences between the results. 
 
 
 
@@ -305,7 +306,7 @@ In the end both of us put equal amounts of effort into the project.
 We used GitHub [TODO: Citation?] for version control and although we did
 some independent work at the comfort of our own homes, a bulk of the work
 was done in a series of \lq hackathon' style, caffeine-fueled meetings, where we just sat
-for 4-6 hours straight at Maari and woked on it. Although this style might be deemed by some
+for 4-6 hours straight at Maari and worked on it. Although this style might be deemed by some
 as a sloppy, we'd like to think of it as pair programming on speed - in that 
 the fact that we sat together and worked on it enabled almost seamless debugging
 and ideation.\\
@@ -354,6 +355,7 @@ files relevant to the query. Each of the query folders also contains a python sc
 that consumes the csv files in the folder and computes the 11-point non-interpolated precision recall curve,
 which is then saved into a \lq plot.png' file in the same folder. 
 \end{enumerate}
+
 
 \newpage
 \section{Result table} \label{App:table}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -22,6 +22,11 @@ Buckland, M.~K. and Gey, F.~C.
 \newblock The relationship between recall and precision.
 \newblock \emph{JASIS}, 45\penalty0 (1):\penalty0 12--19, 1994.
 
+\bibitem[Croft and Xu(1994)]{croft1994corpus}
+Croft, B. and Xu, J.
+\newblock \emph{Corpus-specific stemming using word form co-occurence}.
+\newblock Citeseer, 1994.
+
 \bibitem[Dubin(2004)]{dubin2004most}
 Dubin, D.
 \newblock The most influential paper gerard salton never wrote.
@@ -32,6 +37,17 @@ Hiemstra, D.
 \newblock Information retrieval models.
 \newblock \emph{Information Retrieval: searching in the 21st Century}, pages
   2--19, 2009.
+
+\bibitem[Manning et~al.(2008)Manning, Raghavan, and
+  Sch{\"u}tze]{manning2008introduction}
+Manning, C.~D., Raghavan, P., and Sch{\"u}tze, H.
+\newblock \emph{Introduction to information retrieval}, volume~1.
+\newblock Cambridge university press Cambridge, 2008.
+
+\bibitem[Porter(1980)]{porter1980algorithm}
+Porter, M.~F.
+\newblock An algorithm for suffix stripping.
+\newblock \emph{Program}, 14\penalty0 (3):\penalty0 130--137, 1980.
 
 \bibitem[Robertson et~al.(1996)Robertson, Walker, Beaulieu, Gatford, and
   Payne]{robertson1996okapi}
